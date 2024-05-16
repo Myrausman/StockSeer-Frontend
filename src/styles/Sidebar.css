@@ -1,0 +1,62 @@
+/* Sidebar.css */
+
+.sidebar {
+  width: 350px; /* Set sidebar width */
+  height: 100vh; /* Set sidebar height to full viewport */
+  padding: 20px;
+  background-color: #161414; /* Dark gray background */
+  border-right: 1px solid #723535; /* Dark red border */
+  position: fixed; /* Fix sidebar to the left side of the viewport */
+  top: 0; /* Start sidebar at the top of the viewport */
+  left: 0; /* Position sidebar at left edge of the viewport */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  overflow-y: auto; /* Enable scrolling for long sidebars */
+}
+
+.sidebar h2 {
+  margin-top: 10px; /* Remove top margin from sidebar heading */
+  color: #facc15; /* Light yellow for headings */
+  font-size: 1.2rem; /* Slightly larger font size */
+  font-weight: bold; /* Bold text for headings */
+  text-transform: uppercase; /* Convert headings to uppercase */
+  margin-bottom: 15px; /* Add spacing after headings */
+}
+
+.sidebar label {
+  display: block; /* Display labels on separate lines */
+  margin-bottom: 5px; /* Add spacing between labels and inputs */
+  color: #ddd; /* Light gray for labels */
+  font-weight: normal; /* Regular font weight for labels */
+  font-size: 1 rem;
+}
+
+.sidebar select,
+.sidebar input[type="date"],
+.sidebar input[type="number"] {
+  width: 90%; /* Set width for all input elements */
+  padding: 10px; /* Consistent padding for inputs */
+  margin-bottom: 15px; /* Add spacing between elements */
+  border: 1px solid #ddd; /* Light gray border for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+  font-size: 1rem; /* Consistent font size for inputs */
+}
+.sidebar input[type="radio"]{
+  width: auto; /* Set width for all input elements */
+  padding: 5px; /* Consistent padding for inputs */
+  margin-right: 10px; /* Add spacing between elements */
+  border: 1px solid #ddd; /* Light gray border for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+  font-size: 1rem; /* Consistent font size for inputs */
+}
+
+.sidebar select {
+  /* Additional styles for select elements */
+  background-color: #222; /* Darker background for select options */
+  color: #fff; /* White text for select options */
+}
+
+.sidebar input[type="date"],
+.sidebar input[type="number"] {
+  /* Additional styles for date and number inputs */
+  background-color: #fff; /* White background for better readability */
+}

@@ -1,0 +1,15 @@
+.app {
+  display: flex; /* Allow stacking sidebar and main content */
+  min-height: 100vh; /* Set minimum height for full viewport coverage */
+  background-color: rgb(29, 30, 31);
+  color:#facc15
+}
+
+main {
+  flex: 1; /* Main content takes remaining space */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
