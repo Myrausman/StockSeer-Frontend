@@ -1,7 +1,11 @@
 # StockSeer-Frontend (Stock Prediction Frontend App)
 
 StockSeer is a web application that empowers users to predict stock prices. It leverages React and JavaScript to provide a user-friendly interface for selecting stocks, prediction models, and forecast periods.
+<div style "align-items=center; height=300px; width=400px">
+  
+![image](https://github.com/Myrausman/StockSeer-Frontend/assets/99428378/e176485a-b8ff-4a62-8ed7-7aa0a7c443c8)
 
+</div>
 # Get Started
 ## Usage
 1. **Clone the Repository**
