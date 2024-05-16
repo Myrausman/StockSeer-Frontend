@@ -6,6 +6,7 @@ StockSeer is a web application that empowers users to predict stock prices. It l
 ![image](https://github.com/Myrausman/StockSeer-Frontend/assets/99428378/e176485a-b8ff-4a62-8ed7-7aa0a7c443c8)
 
 </div>
+
 # Get Started
 ## Usage
 1. **Clone the Repository**
