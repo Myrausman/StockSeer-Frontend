@@ -1,32 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles/App.css";
 import Sidebar from "./components/Sidebar";
-import Chart from "chart.js/auto";
 
 function App() {
-  const [option, setOption] = useState("SPY"); // Stock symbol
-  const [data, setData] = useState(null); // Downloaded data
-  // const [startDate, setStartDate] = useState(null); // Start date
-  // const [endDate, setEndDate] = useState(null); // End date
-  const [model, setModel] = useState("LinearRegression"); // Selected model
-  const [forecastDays, setForecastDays] = useState(5); // Number of days to predict
 
+  const [alldata, setAlldata] = useState(null);
 
- 
-
+  console.log(alldata)
   return (
     <div className="app">
       <Sidebar
-        option={option}
-    
+        setAlldata = {setAlldata}
       />
       <main>
         <h1>Stock Price Predictions</h1>
-        {data && (
+        
+        {alldata && (
           <>
-            {/* Render charts using Chart.js */}
-            <canvas id="myChart" width="600" height="400"></canvas>
-            <button >Predict</button>
+          <h2>{alldata.company} Company</h2>
+          <div style={{ display: 'flex', justifyContent: 'right' }}>
+            <img src={`http://127.0.0.1:8000${alldata.plot_image}`} alt="Prediction Plot" style={{ maxWidth: '80%', height: 'auto' }} />
+          </div>
+          <table className="styled-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Close</th>
+                  <th>Predictions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(alldata.validation_table.Close).map(([date, close], index) => (
+                  <tr key={index}>
+                    <td>{date}</td>
+                    <td>{close}</td>
+                    <td>{alldata.validation_table.Predictions[date]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </>
         )}
       </main>

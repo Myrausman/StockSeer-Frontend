@@ -10,40 +10,30 @@ const PREDICTION_MODELS = {
   LSTM: "LSTM",
   KNeighborsRegressor: "KNeighborsRegressor",
 };
-// const FORECAST_PERIODS = {
-//   day_1: '1 day',
-//   day_2: '2 days',
-//   day_3: '3 days',
-//   day_4: '4 days',
-//   day_5: '5 days',
-//   day_6: '6 days',
-//   day_7: '7 days',
-// };
 
-const Sidebar = () => {
-  // const fetchData = async () => {
-  //   console.log(selectedSymbol, modelname, predictionInterval);
-  // };
+const Sidebar = ({setAlldata}) => {
 
-  const [selectedSymbol, setSelectedSymbol] = useState("");
+  const [selectedSymbol, setSelectedSymbol] = useState("AMZN");
 
-  const [modelname, setmodelname] = useState("");
-  const [predictionInterval, setpredictionInterval] = useState("");
+  const [modelname, setmodelname] = useState("RandomForestRegressor");
+  const [predictionInterval, setpredictionInterval] = useState("minutes");
 
   const fetchData = async () => {
     console.log(selectedSymbol, modelname, predictionInterval);
 
     const response = await fetch(
-      `http://127.0.0.1:8000/api/predict?time_diff_value=${predictionInterval}&model_type=${modelname}`,
+      `http://127.0.0.1:8000/api/predict?time_diff_value=${predictionInterval}&model_type=${modelname}&company=${selectedSymbol}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
-        body: JSON.stringify(selectedSymbol),
+        }
       }
     );
+    const data = await response.json();
+    setAlldata(data);
   
+
   };
 
   const handleChange = (event) => {
