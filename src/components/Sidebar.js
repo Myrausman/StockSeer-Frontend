@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Sidebar.css";
 
 const STOCK_SYMBOLS = ["AMZN", "AAPL", "GOOG", "MSFT"];
@@ -15,8 +15,8 @@ const Sidebar = ({setAlldata}) => {
 
   const [selectedSymbol, setSelectedSymbol] = useState("AMZN");
 
-  const [modelname, setmodelname] = useState("RandomForestRegressor");
-  const [predictionInterval, setpredictionInterval] = useState("minutes");
+  const [modelname, setmodelname] = useState("LinearRegression");
+  const [predictionInterval, setpredictionInterval] = useState("days");
 
   const fetchData = async () => {
     console.log(selectedSymbol, modelname, predictionInterval);
