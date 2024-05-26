@@ -11,10 +11,8 @@ const PREDICTION_MODELS = {
   KNeighborsRegressor: "KNeighborsRegressor",
 };
 
-const Sidebar = ({setAlldata}) => {
-
+const Sidebar = ({ setAlldata }) => {
   const [selectedSymbol, setSelectedSymbol] = useState("AMZN");
-
   const [modelname, setmodelname] = useState("LinearRegression");
   const [predictionInterval, setpredictionInterval] = useState("days");
 
@@ -27,14 +25,17 @@ const Sidebar = ({setAlldata}) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        }
+        },
       }
     );
     const data = await response.json();
     setAlldata(data);
-  
-
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  
 
   const handleChange = (event) => {
     setSelectedSymbol(event.target.value);
@@ -43,6 +44,7 @@ const Sidebar = ({setAlldata}) => {
   const handlemodel = (event) => {
     setmodelname(event.target.value);
   };
+
   const handlepredictionInteval = (event) => {
     setpredictionInterval(event.target.value);
   };
@@ -80,7 +82,7 @@ const Sidebar = ({setAlldata}) => {
           <option key={interval}>{interval}</option>
         ))}
       </select>
-      <button onClick={fetchData}>click me</button>
+      <button onClick={fetchData}>Click me</button>
     </div>
   );
 };

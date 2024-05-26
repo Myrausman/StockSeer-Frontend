@@ -19,9 +19,15 @@ function App() {
           <>
           <h2>{alldata.company} Company</h2>
           <div style={{ display: 'flex', justifyContent: 'right' }}>
-            <img src={`http://127.0.0.1:8000${alldata.plot_image}`} alt="Prediction Plot" style={{ maxWidth: '80%', height: 'auto' }} />
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <img
+            src={`http://127.0.0.1:8000${alldata.plot_image}?${new Date().getTime()}`}
+            alt="Prediction Plot"
+            style={{ maxWidth: '80%', height: 'auto' }}
+          />
+        </div>
           </div>
-          <table className="styled-table">
+          <table className="styled-table px-2">
               <thead>
                 <tr>
                   <th>Date</th>
@@ -30,13 +36,19 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(alldata.validation_table.Close).map(([date, close], index) => (
-                  <tr key={index}>
-                    <td>{date}</td>
-                    <td>{close}</td>
-                    <td>{alldata.validation_table.Predictions[date]}</td>
-                  </tr>
-                ))}
+              {Object.entries(alldata.validation_table.Close).map(([date, close], index) => {
+                  const dateObj = new Date(date);
+                  const formattedDate = date.includes('T') ? 
+                    dateObj.toLocaleString() : dateObj.toLocaleDateString();
+
+                  return (
+                    <tr key={index}>
+                      <td>{formattedDate}</td>
+                      <td>{close.toFixed(2)}</td>
+                      <td>{alldata.validation_table.Predictions[date].toFixed(2)}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </>

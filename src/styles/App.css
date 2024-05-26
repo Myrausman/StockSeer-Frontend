@@ -1,46 +1,113 @@
+/* App container */
 .app {
-  display: flex; /* Allow stacking sidebar and main content */
-  min-height: 100vh; /* Set minimum height for full viewport coverage */
-  background-color: rgb(29, 30, 31);
-  color:#facc15
+  display: flex; /* Stack sidebar and main content */
+  min-height: 100vh; /* Full viewport height */
+  background-color: rgb(29, 30, 31); /* Dark background */
+  color: #facc15; /* Text color */
+  font-family: 'Arial', sans-serif; /* Improved font */
 }
 
+/* Main content */
 main {
   flex: 1; /* Main content takes remaining space */
   padding: 20px;
+  margin-left: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: top; /* Center content vertically */
+  justify-content: flex-start; /* Align content to the top */
   align-items: center; /* Center content horizontally */
 }
+
+/* Styled table */
 .styled-table {
-  width: 100%;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  text-align: left;
-  border-collapse: collapse;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px; /* Table width */
+  margin: 25px auto; /* Center the table */
+  font-size: 1em;
+  border-collapse: collapse; /* Remove default border spacing */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Add box shadow */
+  border: 2px solid #444; /* Add border */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Prevent content from spilling out of rounded corners */
 }
 
+/* Table header */
 .styled-table thead tr {
-  background-color: #009879;
-  color: #ffffff;
-  text-align: left;
+  background-color: #333; /* Header background color */
+  color: #facc15; /* Header text color */
+  text-align: center; /* Right-align text */
+  font-weight: bold; /* Bold text */
 }
 
+/* Table cells */
 .styled-table th,
 .styled-table td {
-  padding: 12px 15px;
+  padding: 12px 15px; /* Cell padding */
+  text-align: center; /* Right-align text */
 }
 
+/* Table body */
 .styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  background-color: #444; /* Row background color */
+  color: #facc15; /* Row text color */
+  border-bottom: 1px solid #555; /* Row bottom border */
 }
 
+/* Alternate row colors */
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #b8b1b1;
+  background-color: #555; /* Slightly different background for even rows */
 }
 
+/* Last row styling */
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: none; /* Remove bottom border from last row */
+}
+
+/* Hover effect */
+.styled-table tbody tr:hover {
+  background-color: #666; /* Darker background on hover */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Sidebar styling */
+.sidebar {
+  background-color: #333; /* Dark sidebar background */
+  color: #facc15; /* Sidebar text color */
+  padding: 20px; /* Sidebar padding */
+  width: 250px; /* Fixed width */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sidebar shadow */
+}
+
+.sidebar h2 {
+  font-size: 1.2em; /* Heading font size */
+  margin-bottom: 10px; /* Margin below heading */
+}
+
+.sidebar label {
+  display: block; /* Block label */
+  margin-bottom: 5px; /* Margin below label */
+}
+
+.sidebar select,
+.sidebar button {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding */
+  margin-bottom: 10px; /* Margin below elements */
+  font-size: 1em; /* Font size */
+  color: #333; /* Text color */
+  background-color: #facc15; /* Background color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Element shadow */
+}
+
+.sidebar button {
+  cursor: pointer; /* Pointer cursor on button */
+  font-weight: bold; /* Bold text */
+}
+
+.sidebar button:hover {
+  background-color: #009879; /* Button hover background */
+  color: #fff; /* Button hover text color */
 }
